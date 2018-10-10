@@ -1,2 +1,3 @@
-# lr-test
-Results list with filters
+## Test app for search result filtering and sorting
+
+Run `npm i` then `npm start`
