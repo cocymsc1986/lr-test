@@ -47,7 +47,7 @@ describe('Results reducer', () => {
 		expect(newState).toEqual({
 			test: 'test-state',
 			loading: false,
-			data: ['test']
+			results: ['test']
 		});
 	});
 

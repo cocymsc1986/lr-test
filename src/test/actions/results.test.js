@@ -11,6 +11,8 @@ import {
 	actionCreator
 } from '../../actions/results';
 
+import searchData from '../../helpers/search-data';
+
 describe('Results actions', () => {
 	describe('getResultsRequest', () => {
 		test('Should return the correct type', () => {
@@ -43,19 +45,15 @@ describe('Results actions', () => {
 	describe('ActionCreator', () => {
 		test('Should call request and success when data is returned', async () => {
 			const dispatch = jest.fn();
-			const getResults = jest.fn(() => Promise.resolve([{ name: 'Test' }]))
-			const serviceCreator = jest.fn(() => ({
-				getResults
-			}));
 
-			const actions = actionCreator(serviceCreator);
+			const actions = actionCreator();
 
 			await actions.getResults()(dispatch);
 
 			expect(dispatch).toHaveBeenCalledTimes(2);
 			expect(dispatch).toBeCalledWith({
 				type: GET_RESULTS_SUCCESS,
-				results: [{ name: 'Test' }]
+				results: searchData
 			})
 		});
 	});
