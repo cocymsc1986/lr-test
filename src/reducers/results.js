@@ -12,7 +12,6 @@ export default (state = defaultState, { type, results, error }) => {
 				loading: true
 			}
 		case 'GET_RESULTS_SUCCESS':
-		console.log('REDUCER')
 			return state = { 
 				...state,
 				results,

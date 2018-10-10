@@ -23,7 +23,6 @@ export const getResultsError = error => ({
 // Normally pass in service to enable mocking in test, no real service for this case
 export const actionCreator = () => {
 	const getResults = () => async dispatch => {
-		console.log('HITTING')
 		dispatch(getResultsRequest);
 
 		try {
