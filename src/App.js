@@ -7,7 +7,7 @@ import Filters from './components/Filters';
 import './App.css';
 
 
-class App extends Component {
+export class App extends Component {
   constructor(props) {
     super(props);
 
@@ -20,10 +20,12 @@ class App extends Component {
 
   async componentWillMount() {
     await this.props.getResults();
+
     const { results } = this.props.results;
 
     this.setState({
-      results
+      results,
+      filteredResults: results
     });
   }
 
@@ -40,6 +42,18 @@ class App extends Component {
 
     this.setState({
       filters
+    }, () => {
+      this.updateFilteredResults();
+    });
+  }
+
+  updateFilteredResults() {
+    const { results, filters } = this.state;
+
+    const filteredResults = results.filter(result => filters.every(filter => result.facilities.includes(filter)));
+;
+    this.setState({
+      filteredResults
     });
   }
 
@@ -52,7 +66,7 @@ class App extends Component {
         <div>
           <Filters updateFilters={(e) => this.updateFilters(e)} />
         </div>
-        {this.state.results.map((result, i) => {
+        {this.state.filteredResults.map((result, i) => {
           return (
             <div key={i}>{result.name}</div>
           )
