@@ -1,5 +1,5 @@
 import React from 'react';
-import App from './App';
+import { App } from '../App';
 
 import resultsData from '../helpers/search-data'; 
 
@@ -9,11 +9,12 @@ it('renders', () => {
   expect(wrapper).toMatchSnapshot();
 });
 
-describe('updateFilter should update filteredResults state', () => {
-  const wrapper = shallow(<App results={ resultsData } />);
-  wrapper.instance().updateFilter('pool');
+describe('updateFilters should update filteredResults state', () => {
+  const wrapper = shallow(<App results={{ results: resultsData }} />);
+  wrapper.setState({ results: resultsData });
+  wrapper.instance().updateFilters({ target: { checked: true, value: 'pool' } });
   
-  expect(wrapper.state().filter).toBe(['pool']);
+  expect(wrapper.state().filters).toEqual(['pool']);
   expect(wrapper.state().filteredResults).toEqual([
     {
       "name": "hotelone",
