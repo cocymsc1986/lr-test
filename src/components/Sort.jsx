@@ -5,7 +5,7 @@ export default ({ updateSort }) => {
 		<div className="sort">
 			<select className="sort__input" onChange={updateSort}>
 				<option value="ascending">Ascending</option>
-				<option value="descending">Descending</option>
+				<option value="descending" selected>Descending</option>
 			</select>	
 		</div>
 	);
