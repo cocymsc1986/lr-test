@@ -5,6 +5,7 @@ import resultsActions from './actions/results';
 
 import Filters from './components/Filters';
 import Sort from './components/Sort';
+import Result from './components/Result';
 import './App.css';
 
 
@@ -79,21 +80,23 @@ export class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <header className="">
-          Search Results
-        </header>
-        <div>
-          <Filters updateFilters={(e) => this.updateFilters(e)} />
-        </div>
-        <div>
-          <Sort updateSort={(e) => this.updateSort(e)} />
-        </div>
-        {this.state.filteredResults.map((result, i) => {
-          return (
-            <div key={i}>{result.name}</div>
-          )
-        })}
+      <div className="app">
+          <div className="sidebar">
+            <Sort updateSort={(e) => this.updateSort(e)} />
+            <Filters updateFilters={(e) => this.updateFilters(e)} />
+          </div>
+          <div className="results">
+            <header className="header">
+              Search Results
+            </header>
+            <main>
+              {this.state.filteredResults.map((result, i) => {
+                return (
+                  <Result result={result} key={i} />
+                )
+              })}
+            </main>
+          </div>
       </div>
     );
   }
