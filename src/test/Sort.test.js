@@ -7,7 +7,7 @@ describe('Filters component', () => {
 		const mockFn = jest.fn()
 		const wrapper = shallow(<Sort updateSort={mockFn} />);
 
-		wrapper.find('.sort__input').onChange();
+		wrapper.find('.sort__input').first().simulate('change');
 
 		expect(mockFn).toHaveBeenCalled();
 	})

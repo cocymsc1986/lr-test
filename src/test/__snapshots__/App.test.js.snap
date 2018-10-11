@@ -28,6 +28,11 @@ ShallowWrapper {
             updateFilters={[Function]}
           />
         </div>,
+        <div>
+          <_default
+            updateSort={[Function]}
+          />
+        </div>,
         Array [],
       ],
       "className": "App",
@@ -69,6 +74,29 @@ ShallowWrapper {
         },
         "type": "div",
       },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <_default
+            updateSort={[Function]}
+          />,
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "updateSort": [Function],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        "type": "div",
+      },
     ],
     "type": "div",
   },
@@ -87,6 +115,11 @@ ShallowWrapper {
           <div>
             <_default
               updateFilters={[Function]}
+            />
+          </div>,
+          <div>
+            <_default
+              updateSort={[Function]}
             />
           </div>,
           Array [],
@@ -123,6 +156,29 @@ ShallowWrapper {
             "nodeType": "function",
             "props": Object {
               "updateFilters": [Function],
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <_default
+              updateSort={[Function]}
+            />,
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "updateSort": [Function],
             },
             "ref": null,
             "rendered": null,
