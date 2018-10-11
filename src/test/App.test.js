@@ -10,7 +10,7 @@ it('renders', () => {
 });
 
 describe('updateFilters should update filteredResults state', () => {
-  const wrapper = shallow(<App results={{ results: resultsData }} />);
+  const wrapper = shallow(<App />);
   wrapper.setState({ results: resultsData });
   wrapper.instance().updateFilters({ target: { checked: true, value: 'pool' } });
   
@@ -24,9 +24,10 @@ describe('updateFilters should update filteredResults state', () => {
   ]);
 });
 
-describe('sortResults with ascend should sort filteredResults ascending', () => {
-  const wrapper = shallow(<App results={ resultsData } />);
-  wrapper.instance().sortResults('ascend');
+describe('updateSort with ascend should sort filteredResults ascending', () => {
+  const wrapper = shallow(<App />);
+  wrapper.setState({ filteredResults: resultsData });
+  wrapper.instance().updateSort({ target: { value: 'ascending' }});
 
   expect(wrapper.state().filteredResults).toEqual([
     {
@@ -48,8 +49,9 @@ describe('sortResults with ascend should sort filteredResults ascending', () => 
 });
 
 describe('sortResults with descend should sort filteredResults descending', () => {
-  const wrapper = shallow(<App results={ resultsData } />);
-  wrapper.instance().sortResults('ascend');
+  const wrapper = shallow(<App />);
+  wrapper.setState({ filteredResults: resultsData });
+  wrapper.instance().updateSort({ target: { value: 'descending' }});
 
   expect(wrapper.state().filteredResults).toEqual([
     {

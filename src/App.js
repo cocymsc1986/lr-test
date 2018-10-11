@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import resultsActions from './actions/results';
 
 import Filters from './components/Filters';
+import Sort from './components/Sort';
 import './App.css';
 
 
@@ -15,6 +16,7 @@ export class App extends Component {
       results: [],
       filteredResults: [],
       filters: [],
+      sort: 'descending'
     }
   }
 
@@ -57,6 +59,24 @@ export class App extends Component {
     });
   }
 
+  updateSort(e) {
+    this.setState({ sort: e.target.value }, () => {
+      this.sortResults()
+    })
+  }
+
+  sortResults() {
+    const { filteredResults, sort } = this.state;
+
+    const sortedResults = filteredResults.sort((a, b) => {
+      return sort === 'ascending' ? a.starRating - b.starRating : b.starRating - a.starRating
+    });
+
+    this.setState({
+      filteredResults: sortedResults
+    })
+  }
+
   render() {
     return (
       <div className="App">
@@ -65,6 +85,9 @@ export class App extends Component {
         </header>
         <div>
           <Filters updateFilters={(e) => this.updateFilters(e)} />
+        </div>
+        <div>
+          <Sort updateSort={(e) => this.updateSort(e)} />
         </div>
         {this.state.filteredResults.map((result, i) => {
           return (
