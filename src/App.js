@@ -30,6 +30,8 @@ export class App extends Component {
       results,
       filteredResults: results
     });
+
+    this.sortResults();
   }
 
   updateFilters(e) {
